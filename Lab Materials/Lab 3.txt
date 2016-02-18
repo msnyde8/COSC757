@@ -1,0 +1,2 @@
+Lab 3: Regression Analysis
+Complete the Hands On Analysis at the end of Chapter 5.  Use the Chapter 5 R Zone for examples to help you solve the problems.

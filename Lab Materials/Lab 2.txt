@@ -1,0 +1,4 @@
+Lab 2: Exploratory Data Analysis in R
+In this lab students will complete The R Zone of Chapter 3.  This tutorial uses the Churn dataset in the data folder under lab materials.
+
+Make sure that you write all of your R code for this lab and save it as a script.  It could come in handy for the assignment.  
