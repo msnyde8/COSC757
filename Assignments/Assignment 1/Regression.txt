@@ -1,0 +1,58 @@
+
+
+                   nonaall_mpg nonaall_horsepower nonaall_weight
+nonaall_mpg             1.0000            -0.7784        -0.8322
+nonaall_horsepower     -0.7784             1.0000         0.8645
+nonaall_weight         -0.8322             0.8645         1.0000
+
+
+> horsepowerTest$p.value
+[1] 7.031989e-81
+> weightTest$p.value
+[1] 6.015296e-102
+> mpgTest$p.value
+[1] 0
+
+
+
+
+Call:
+lm(formula = nonaall_mpg ~ nonaall_horsepower)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.5710  -3.2592  -0.3435   2.7630  16.9240 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        39.935861   0.717499   55.66   <2e-16 ***
+nonaall_horsepower -0.157845   0.006446  -24.49   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.906 on 390 degrees of freedom
+Multiple R-squared:  0.6059,	Adjusted R-squared:  0.6049 
+F-statistic: 599.7 on 1 and 390 DF,  p-value: < 2.2e-16
+
+
+
+
+
+Call:
+lm(formula = nonaall_mpg ~ nonaall_weight)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11.9736  -2.7556  -0.3358   2.1379  16.5194 
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    46.216524   0.798673   57.87   <2e-16 ***
+nonaall_weight -0.007647   0.000258  -29.64   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.333 on 390 degrees of freedom
+Multiple R-squared:  0.6926,	Adjusted R-squared:  0.6918 
+F-statistic: 878.8 on 1 and 390 DF,  p-value: < 2.2e-16
+

@@ -1,0 +1,27 @@
+
+      mpg          cylinders      displacement  
+ Min.   : 9.00   Min.   :3.000   Min.   : 68.0  
+ 1st Qu.:17.50   1st Qu.:4.000   1st Qu.:105.0  
+ Median :23.00   Median :4.000   Median :151.0  
+ Mean   :23.51   Mean   :5.475   Mean   :194.8  
+ 3rd Qu.:29.00   3rd Qu.:8.000   3rd Qu.:302.0  
+ Max.   :46.60   Max.   :8.000   Max.   :455.0  
+ NA's   :8                                      
+   horsepower         weight      acceleration  
+ Min.   : 46.00   Min.   :1613   Min.   : 8.00  
+ 1st Qu.: 75.75   1st Qu.:2226   1st Qu.:13.70  
+ Median : 95.00   Median :2822   Median :15.50  
+ Mean   :105.08   Mean   :2979   Mean   :15.52  
+ 3rd Qu.:130.00   3rd Qu.:3618   3rd Qu.:17.18  
+ Max.   :230.00   Max.   :5140   Max.   :24.80  
+ NA's   :6                                      
+   model_year        origin                car_name  
+ Min.   :70.00   Min.   :1.000   ford pinto    :  6  
+ 1st Qu.:73.00   1st Qu.:1.000   amc matador   :  5  
+ Median :76.00   Median :1.000   ford maverick :  5  
+ Mean   :75.92   Mean   :1.569   toyota corolla:  5  
+ 3rd Qu.:79.00   3rd Qu.:2.000   amc gremlin   :  4  
+ Max.   :82.00   Max.   :3.000   amc hornet    :  4  
+                                 (Other)       :377  
+
+

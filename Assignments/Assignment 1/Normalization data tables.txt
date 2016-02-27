@@ -1,0 +1,85 @@
+
+MPG Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   17.50   23.00   23.51   29.00   46.60 
+MPG Min-Max Normalized Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.2261  0.3723  0.3860  0.5319  1.0000 
+
+Displacement Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   68.0   105.0   151.0   194.8   302.0   455.0 
+Displacement Min-Max Normalized Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.00000 0.09561 0.21450 0.32760 0.60470 1.00000 
+
+Horsepower Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  46.00   75.75   95.00  105.10  130.00  230.00 
+Horsepower Min-Max Normalized Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.1617  0.2663  0.3211  0.4565  1.0000 
+
+Weight Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1613    2226    2822    2979    3618    5140 
+Weight Min-Max Normalized Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.1739  0.3429  0.3874  0.5685  1.0000 
+
+
+
+
+MPG Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   17.50   23.00   23.51   29.00   46.60 
+MPG Z-score Standardized Summary:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-1.85700 -0.76950 -0.06584  0.00000  0.70180  2.95400 
+Displacement Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   68.0   105.0   151.0   194.8   302.0   455.0 
+Displacement Z-score Standardized Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-1.2080 -0.8557 -0.4173  0.0000  1.0220  2.4800 
+Horsepower Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  46.00   75.75   95.00  105.10  130.00  230.00 
+Horsepower Z-score Standardized Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-1.5240 -0.7566 -0.2601  0.0000  0.6427  3.2220 
+Weight Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1613    2226    2822    2979    3618    5140 
+Weight Z-score Standardized Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-1.6130 -0.8889 -0.1853  0.0000  0.7542  2.5510 
+
+
+
+
+MPG Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9.00   17.50   23.00   23.51   29.00   46.60 
+MPG Decimal Scaled Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0900  0.1750  0.2300  0.2351  0.2900  0.4660 
+Displacement Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   68.0   105.0   151.0   194.8   302.0   455.0 
+Displacement Decimal Scaled Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0680  0.1050  0.1510  0.1948  0.3020  0.4550 
+Horsepower Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  46.00   75.75   95.00  105.10  130.00  230.00 
+Horsepower Decimal Scaled Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.04600 0.07575 0.09500 0.10510 0.13000 0.23000 
+Weight Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1613    2226    2822    2979    3618    5140 
+Weight Decimal Scaled Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.1613  0.2226  0.2822  0.2979  0.3618  0.5140 
+  
