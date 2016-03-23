@@ -1,0 +1,42 @@
+Accuracy = (TP + TN) / all
+
+error rate = (FP + FN) /all
+
+sensitivity = (TP/P)
+
+specificity = (TN/N)
+
+
+
+Total = 190
+P = TP + FN
+N = TN + FP
+Balanced:
+TP = 0
+FN = 16 + 17 = 33
+FP = 7 + 9 = 16
+TN = 189 + 5 + 7 + 185 = 386
+S-P = 0 + 33 = 33
+S-N = 386 + 16 = 402
+
+Left-tipped:
+TP = 189
+FN = 7 + 5 = 12
+FP = 16 + 7 = 23
+TN = 0 + 9 + 17 + 185 = 211
+S-P = 189 + 12 = 201
+S-N = 211 + 23 = 234
+
+Righ-tipped:
+TP = 185
+FN = 9 + 7 = 16
+FP = 17 + 5 = 22
+TN = 0 + 16 + 7 + 189 = 212
+S-P = 185 + 16 = 201
+S-N = 212 + 22 = 234
+
+
+TP = 0; FN = 33; FP = 16; TN = 386; S-P = 33; S-N = 402
+TP = 189; FN = 12; FP = 23; TN = 211; S-P = 201; S-N = 234
+TP = 185; FN = 16; FP = 22; TN = 212; S-P = 201; S-N = 234
+

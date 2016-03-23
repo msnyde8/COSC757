@@ -18,8 +18,9 @@ printcp(balanceScale_rpart)
 plotcp(balanceScale_rpart)
 plot(balanceScale_rpart)
 text(balanceScale_rpart, use.n=TRUE)
-balanceScale_pred <- predict(balanceScale_rpart, newData = testData)
+balanceScale_pred <- predict(balanceScale_rpart, newData = testData, type="class")
 balanceScale_pred
+table(balanceScale_pred,testData$class)
 
 ## Naive Bayes Classification
 # install.packages("e1071")
