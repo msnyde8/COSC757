@@ -18,9 +18,10 @@ printcp(balanceScale_rpart)
 plotcp(balanceScale_rpart)
 plot(balanceScale_rpart)
 text(balanceScale_rpart, use.n=TRUE)
-balanceScale_pred <- predict(balanceScale_rpart, newData = testData, type="class")
+balanceScale_pred <- predict(balanceScale_rpart, testData[,-6], type="class")
+#balanceScale_pred <- predict(balanceScale_rpart, newData = testData, type="class")
 balanceScale_pred
-table(balanceScale_pred,testData$class)
+table(balanceScale_pred, testData$class)
 
 ## Naive Bayes Classification
 # install.packages("e1071")
@@ -29,6 +30,8 @@ table(balanceScale_pred,testData$class)
 # classifier <- naiveBayes(class ~ balanceData, data = trainData)
 classifier <- naiveBayes(class ~ rWeight + rDistance + lWeight + lDistance, data = trainData, method = "class")
 pred <- predict(classifier, testData[,-5])
+table(pred)
+table(testData$class)
 table(pred,testData$class)
 
 ## Random Forest?
