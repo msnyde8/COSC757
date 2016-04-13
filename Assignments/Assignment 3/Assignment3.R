@@ -10,7 +10,7 @@ library(fpc)
 ## Data setup
 #irisData <- read.csv(file = "C:/Users/maryjoyce/Documents/Towson/Spring 2016/COSC 757/Assignments/Assignment2/UCI data/try1/iris.data.txt", header = FALSE, sep = ",", stringsAsFactors = TRUE, col.names = c("sLength", "sWidth", "pLength", "pWidth", "class") )
 #plot(irisData)
-paperData <- read.csv(file = "C:/Users/maryjoyce/Documents/Towson/Spring 2016/COSC 757/Assignments/Assignment3/UCI data/[UCI] AAAI-13 Accepted Papers - Papers.csv", header = FALSE, stringsAsFactors = TRUE, col.names = c("title", "keywords", "topics", "hlKeywords", "abstract") )
+paperData <- read.csv(file = "C:/Users/maryjoyce/Documents/Towson/Spring 2016/COSC 757/Assignments/Assignment3/UCI data/[UCI] AAAI-13 Accepted Papers - Papers.csv", header = TRUE, stringsAsFactors = TRUE, col.names = c("title", "keywords", "topics", "hlKeywords", "abstract") )
 plot(paperData)
 newData <- cbind(paperData$topics, paperData$hlKeywords)
 plot(newData)
@@ -97,6 +97,16 @@ cstatskm8$average.within
 cstatskm10$average.between
 cstatskm10$average.within
 
+#silhouette plots
+d <- dist(newData)
+sil <- silhouette(km8$cluster,d)
+plot(sil)
+d <- dist(newData)
+sil <- silhouette(km10$cluster,d)
+plot(sil)
+
+
+
 ## Partitioning approach: K-Medoids
 distm <- dist(newData)
 
@@ -124,15 +134,33 @@ cstatspam8$average.within
 cstatspam10$average.between
 cstatspam10$average.within
 
+#silhouette plots
+d <- dist(newData)
+sil <- silhouette(pam8$cluster,d)
+plot(sil)
+d <- dist(newData)
+sil <- silhouette(pam10$cluster,d)
+plot(sil)
+
 
 ## Hierarchical approach: AGNES - Single linkage
 agn <- agnes(newData, diss=FALSE, stand=FALSE, method="single") 
 dend_agn <- as.dendrogram(agn)
 plot(dend_agn, xlab="Index of Data Points", ylab = "Steps", main = "Single-Linkage Clustering")
+#agn$height
+#agn$order
+agn$ac
+
 
 ## Hierarchical approach: AGNES - Complete linkage
-agn <- agnes(newData, diss=FALSE, stand=FALSE, method="complete") 
-dend_agn <- as.dendrogram(agn)
-plot(dend_agn, xlab="Index of Data Points", ylab = "Steps", main = "Complete-Linkage Clustering")
+agn2 <- agnes(newData, diss=FALSE, stand=FALSE, method="complete") 
+dend_agn2 <- as.dendrogram(agn2)
+plot(dend_agn2, xlab="Index of Data Points", ylab = "Steps", main = "Complete-Linkage Clustering")
+#agn2$height
+#agn2$order
+agn2$ac
+
+
+
 
 
