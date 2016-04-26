@@ -1,0 +1,259 @@
+> #### Input data set plants scale into Data Frame "plantsData"
+> votingData <- read.csv(file = "C:/Users/maryjoyce/Documents/Towson/Spring 2016/COSC 757/Assignments/Assignment4/UCI data/house-votes-84.data.txt", header = FALSE, sep = ",", stringsAsFactors = FALSE)
+> votingData.ID<-seq.int(nrow(votingData))
+> votingData[1:20,]
+           V1 V2 V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17
+1  republican  n  y  n  y  y  y  n  n   n   y   ?   y   y   y   n   y
+2  republican  n  y  n  y  y  y  n  n   n   n   n   y   y   y   n   ?
+3    democrat  ?  y  y  ?  y  y  n  n   n   n   y   n   y   y   n   n
+4    democrat  n  y  y  n  ?  y  n  n   n   n   y   n   y   n   n   y
+5    democrat  y  y  y  n  y  y  n  n   n   n   y   ?   y   y   y   y
+6    democrat  n  y  y  n  y  y  n  n   n   n   n   n   y   y   y   y
+7    democrat  n  y  n  y  y  y  n  n   n   n   n   n   ?   y   y   y
+8  republican  n  y  n  y  y  y  n  n   n   n   n   n   y   y   ?   y
+9  republican  n  y  n  y  y  y  n  n   n   n   n   y   y   y   n   y
+10   democrat  y  y  y  n  n  n  y  y   y   n   n   n   n   n   ?   ?
+11 republican  n  y  n  y  y  n  n  n   n   n   ?   ?   y   y   n   n
+12 republican  n  y  n  y  y  y  n  n   n   n   y   ?   y   y   ?   ?
+13   democrat  n  y  y  n  n  n  y  y   y   n   n   n   y   n   ?   ?
+14   democrat  y  y  y  n  n  y  y  y   ?   y   y   ?   n   n   y   ?
+15 republican  n  y  n  y  y  y  n  n   n   n   n   y   ?   ?   n   ?
+16 republican  n  y  n  y  y  y  n  n   n   y   n   y   y   ?   n   ?
+17   democrat  y  n  y  n  n  y  n  y   ?   y   y   y   ?   n   n   y
+18   democrat  y  ?  y  n  n  n  y  y   y   n   n   n   y   n   y   y
+19 republican  n  y  n  y  y  y  n  n   n   n   n   ?   y   y   n   n
+20   democrat  y  y  y  n  n  n  y  y   y   n   y   n   n   n   y   y
+> votingData$V1 <- as.factor(votingData$V1)
+> votingData$V2[votingData$V2=="y"]<-"2y"
+> votingData$V2[votingData$V2=="n"]<-"2n"
+> votingData$V2[votingData$V2=="?"]<-""
+> votingData$V2 <- as.factor(votingData$V2)
+> votingData$V3[votingData$V3=="y"]<-"3y"
+> votingData$V3[votingData$V3=="n"]<-"3n"
+> votingData$V3[votingData$V3=="?"]<-""
+> votingData$V3 <- as.factor(votingData$V3)
+> votingData$V4[votingData$V4=="y"]<-"4y"
+> votingData$V4[votingData$V4=="n"]<-"4n"
+> votingData$V4[votingData$V4=="?"]<-""
+> votingData$V4 <- as.factor(votingData$V4)
+> votingData$V5[votingData$V5=="y"]<-"5y"
+> votingData$V5[votingData$V5=="n"]<-"5n"
+> votingData$V5[votingData$V5=="?"]<-""
+> votingData$V5 <- as.factor(votingData$V5)
+> votingData$V6[votingData$V6=="y"]<-"6y"
+> votingData$V6[votingData$V6=="n"]<-"6n"
+> votingData$V6[votingData$V6=="?"]<-""
+> votingData$V6 <- as.factor(votingData$V6)
+> votingData$V7[votingData$V7=="y"]<-"7y"
+> votingData$V7[votingData$V7=="n"]<-"7n"
+> votingData$V7[votingData$V7=="?"]<-""
+> votingData$V7 <- as.factor(votingData$V2)
+> votingData$V8[votingData$V8=="y"]<-"8y"
+> votingData$V8[votingData$V8=="n"]<-"8n"
+> votingData$V8[votingData$V8=="?"]<-""
+> votingData$V8 <- as.factor(votingData$V2)
+> votingData$V9[votingData$V9=="y"]<-"9y"
+> votingData$V9[votingData$V9=="n"]<-"9n"
+> votingData$V9[votingData$V9=="?"]<-""
+> votingData$V9 <- as.factor(votingData$V2)
+> votingData$V10[votingData$V10=="y"]<-"10y"
+> votingData$V10[votingData$V10=="n"]<-"10n"
+> votingData$V10[votingData$V10=="?"]<-""
+> votingData$V10 <- as.factor(votingData$V2)
+> votingData$V11[votingData$V11=="y"]<-"11y"
+> votingData$V11[votingData$V11=="n"]<-"11n"
+> votingData$V11[votingData$V11=="?"]<-""
+> votingData$V11 <- as.factor(votingData$V2)
+> votingData$V12[votingData$V12=="y"]<-"12y"
+> votingData$V12[votingData$V12=="n"]<-"12n"
+> votingData$V12[votingData$V12=="?"]<-""
+> votingData$V12 <- as.factor(votingData$V12)
+> votingData$V13[votingData$V13=="y"]<-"13y"
+> votingData$V13[votingData$V13=="n"]<-"13n"
+> votingData$V13[votingData$V13=="?"]<-""
+> votingData$V13 <- as.factor(votingData$V13)
+> votingData$V14[votingData$V14=="y"]<-"14y"
+> votingData$V14[votingData$V14=="n"]<-"14n"
+> votingData$V14[votingData$V14=="?"]<-""
+> votingData$V14 <- as.factor(votingData$V14)
+> votingData$V15[votingData$V15=="y"]<-"15y"
+> votingData$V15[votingData$V15=="n"]<-"15n"
+> votingData$V15[votingData$V15=="?"]<-""
+> votingData$V15 <- as.factor(votingData$V15)
+> votingData$V16[votingData$V16=="y"]<-"16y"
+> votingData$V16[votingData$V16=="n"]<-"16n"
+> votingData$V16[votingData$V16=="?"]<-""
+> votingData$V16 <- as.factor(votingData$V16)
+> votingData$V17[votingData$V17=="y"]<-"17y"
+> votingData$V17[votingData$V17=="n"]<-"17n"
+> votingData$V17[votingData$V17=="?"]<-""
+> votingData$V17 <- as.factor(votingData$V17)
+> votingData[1:20,]
+           V1 V2 V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17
+1  republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n     13y 14y 15y 16n 17y
+2  republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12n 13y 14y 15y 16n    
+3    democrat    3y 4y    6y                  12y 13n 14y 15y 16n 17n
+4    democrat 2n 3y 4y 5n    2n 2n 2n  2n  2n 12y 13n 14y 15n 16n 17y
+5    democrat 2y 3y 4y 5n 6y 2y 2y 2y  2y  2y 12y     14y 15y 16y 17y
+6    democrat 2n 3y 4y 5n 6y 2n 2n 2n  2n  2n 12n 13n 14y 15y 16y 17y
+7    democrat 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12n 13n     15y 16y 17y
+8  republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12n 13n 14y 15y     17y
+9  republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12n 13y 14y 15y 16n 17y
+10   democrat 2y 3y 4y 5n 6n 2y 2y 2y  2y  2y 12n 13n 14n 15n        
+11 republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n         14y 15y 16n 17n
+12 republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12y     14y 15y        
+13   democrat 2n 3y 4y 5n 6n 2n 2n 2n  2n  2n 12n 13n 14y 15n        
+14   democrat 2y 3y 4y 5n 6n 2y 2y 2y  2y  2y 12y     14n 15n 16y    
+15 republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12n 13y         16n    
+16 republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12n 13y 14y     16n    
+17   democrat 2y 3n 4y 5n 6n 2y 2y 2y  2y  2y 12y 13y     15n 16n 17y
+18   democrat 2y    4y 5n 6n 2y 2y 2y  2y  2y 12n 13n 14y 15n 16y 17y
+19 republican 2n 3y 4n 5y 6y 2n 2n 2n  2n  2n 12n     14y 15y 16n 17n
+20   democrat 2y 3y 4y 5n 6n 2y 2y 2y  2y  2y 12y 13n 14n 15n 16y 17y
+> 
+> library("arules", lib.loc="~/R/win-library/3.2")
+> library(datasets)
+> #votingBaskets <- read.transactions(file = "C:/Users/maryjoyce/Documents/Towson/Spring 2016/COSC 757/Assignments/Assignment4/UCI data/house-votes-84.data.txt", format="basket", sep = ",")
+> # Inspect the dataset
+> votingBaskets <- as(votingData,"transactions")
+> summary(votingBaskets)
+transactions as itemMatrix in sparse format with
+ 435 rows (elements/itemsets/transactions) and
+ 50 columns (items) and a density of 0.34 
+
+most frequent items:
+    V17=17y V1=democrat     V12=12n       V4=4y     V15=15y     (Other) 
+        269         267         264         253         248        6094 
+
+element (itemset/transaction) length distribution:
+sizes
+ 17 
+435 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+     17      17      17      17      17      17 
+
+includes extended item information - examples:
+         labels variables     levels
+1   V1=democrat        V1   democrat
+2 V1=republican        V1 republican
+3           V2=        V2           
+
+includes extended transaction information - examples:
+  transactionID
+1             1
+2             2
+3             3
+> votingBaskets[1:2,]
+transactions in sparse format with
+ 2 transactions (rows) and
+ 50 items (columns)
+> # plot the data
+> itemFrequencyPlot(votingBaskets, support=0.1, cex.names=0.8)
+> 
+> 
+> ## Apriori Algorithm
+> # association rules
+> rules <- apriori(votingBaskets, parameter = list(support=0.01, confidence=0.6))
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport support minlen maxlen target   ext
+        0.6    0.1    1 none FALSE            TRUE    0.01      1     10  rules FALSE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 4 
+
+set item appearances ...[0 item(s)] done [0.00s].
+set transactions ...[50 item(s), 435 transaction(s)] done [0.00s].
+sorting and recoding items ... [50 item(s)] done [0.00s].
+creating transaction tree ... done [0.00s].
+checking subsets of size 1 2 3 4 5 6 7 8 9 10 done [1.36s].
+writing ... [12694271 rule(s)] done [3.04s].
+creating S4 object  ... done [6.35s].
+> # subset of rules
+> rulesDemocrat <- subset(rules, subset=rhs%in%"V1=democrat")
+> rulesRepublican <- subset(rules, subset=rhs%in%"V1=republican")
+> inspect(sort(rulesDemocrat, by="confidence")[1:5])
+    lhs              rhs           support    confidence lift    
+552 {V5=,V12=12y} => {V1=democrat} 0.01149425 1          1.629213
+554 {V3=3y,V5=}   => {V1=democrat} 0.01149425 1          1.629213
+560 {V5=,V13=13n} => {V1=democrat} 0.01379310 1          1.629213
+562 {V4=4y,V5=}   => {V1=democrat} 0.01149425 1          1.629213
+565 {V5=,V17=17y} => {V1=democrat} 0.01149425 1          1.629213
+> inspect(sort(rulesRepublican, by="confidence")[1:5])
+     lhs               rhs             support    confidence lift    
+1339 {V4=4n,V15=}   => {V1=republican} 0.01149425 1          2.589286
+1341 {V5=5y,V15=}   => {V1=republican} 0.01379310 1          2.589286
+1557 {V4=4n,V12=}   => {V1=republican} 0.01379310 1          2.589286
+1559 {V5=5y,V12=}   => {V1=republican} 0.01609195 1          2.589286
+2045 {V13=13y,V16=} => {V1=republican} 0.01609195 1          2.589286
+> 
+> 
+> ## Eclat Algorithm
+> itemsets <- eclat(votingBaskets, parameter = list(sup=0.1, minlen=3, maxlen=15))
+Eclat
+
+parameter specification:
+ tidLists support minlen maxlen            target   ext
+    FALSE     0.1      3     15 frequent itemsets FALSE
+
+algorithmic control:
+ sparse sort verbose
+      7   -2    TRUE
+
+Absolute minimum support count: 43 
+
+create itemset ... 
+set transactions ...[50 item(s), 435 transaction(s)] done [0.00s].
+sorting and recoding items ... [36 item(s)] done [0.00s].
+creating bit matrix ... [36 row(s), 435 column(s)] done [0.00s].
+writing  ... [153101 set(s)] done [0.02s].
+Creating S4 object  ... done [0.06s].
+> fsets <- eclat(votingBaskets, parameter=list(sup=0.5, minlen=3))
+Eclat
+
+parameter specification:
+ tidLists support minlen maxlen            target   ext
+    FALSE     0.5      3     10 frequent itemsets FALSE
+
+algorithmic control:
+ sparse sort verbose
+      7   -2    TRUE
+
+Absolute minimum support count: 217 
+
+create itemset ... 
+set transactions ...[50 item(s), 435 transaction(s)] done [0.00s].
+sorting and recoding items ... [14 item(s)] done [0.00s].
+creating bit matrix ... [14 row(s), 435 column(s)] done [0.00s].
+writing  ... [43 set(s)] done [0.00s].
+Creating S4 object  ... done [0.00s].
+> fsets.top5 <- sort(fsets)[1:5]
+> inspect(fsets.top5)
+  items                                   support  
+1 {V2=2n,V7=2n,V8=2n,V9=2n,V10=2n,V11=2n} 0.5425287
+2 {V2=2n,V7=2n,V8=2n,V9=2n,V10=2n}        0.5425287
+3 {V2=2n,V8=2n,V9=2n,V10=2n,V11=2n}       0.5425287
+4 {V2=2n,V7=2n,V8=2n,V9=2n,V11=2n}        0.5425287
+5 {V2=2n,V7=2n,V8=2n,V9=2n}               0.5425287
+> rulesDem <- subset(itemsets, subset=items%in%"V1=democrat")
+> rulesRep <- subset(itemsets, subset=items%in%"V1=republican")
+> inspect(sort(rulesDem, by="support")[1:5])
+       items                             support  
+153087 {V1=democrat,V4=4y,V5=5n}         0.5034483
+151540 {V1=democrat,V5=5n,V13=13n}       0.4620690
+146989 {V1=democrat,V5=5n,V6=6n}         0.4459770
+151553 {V1=democrat,V4=4y,V13=13n}       0.4413793
+151533 {V1=democrat,V4=4y,V5=5n,V13=13n} 0.4275862
+> inspect(sort(rulesRep, by="support")[1:5])
+      items                               support  
+39992 {V1=republican,V5=5y,V6=6y}         0.3586207
+39984 {V1=republican,V5=5y,V15=15y}       0.3563218
+45197 {V1=republican,V6=6y,V15=15y}       0.3425287
+38961 {V1=republican,V5=5y,V6=6y,V15=15y} 0.3402299
+22973 {V1=republican,V4=4n,V5=5y}         0.3218391
+> 

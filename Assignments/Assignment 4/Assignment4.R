@@ -76,9 +76,11 @@ library(datasets)
 votingBaskets <- as(votingData,"transactions")
 summary(votingBaskets)
 votingBaskets[1:2,]
-
 # plot the data
 itemFrequencyPlot(votingBaskets, support=0.1, cex.names=0.8)
+
+
+## Apriori Algorithm
 # association rules
 rules <- apriori(votingBaskets, parameter = list(support=0.01, confidence=0.6))
 # subset of rules
@@ -88,26 +90,12 @@ inspect(sort(rulesDemocrat, by="confidence")[1:5])
 inspect(sort(rulesRepublican, by="confidence")[1:5])
 
 
-
-
-## Decision Tree Classification
-# install.packages("rpart")
-# library(rpart)
-set.seed(1234)
-ind <- sample(2, nrow(balanceScaleData), replace=TRUE,
-              prob=c(0.7,0.3))
-trainData <- balanceScaleData[ind==1,]
-testData <- balanceScaleData[ind==2,]
-# trainData$balanceData <- (trainData$rWeight * trainData$rDistance) - (trainData$lWeight * trainData$lDistance)
-# testData$balanceData <- (testData$rWeight * testData$rDistance) - (testData$lWeight * testData$lDistance)
-# balanceScale_rpart <- rpart(class ~ balanceData, data = trainData)
-balanceScale_rpart <- rpart(class ~ rWeight + rDistance + lWeight + lDistance, data = trainData, method = "class")
-printcp(balanceScale_rpart)
-plotcp(balanceScale_rpart)
-plot(balanceScale_rpart)
-text(balanceScale_rpart, use.n=TRUE)
-balanceScale_pred <- predict(balanceScale_rpart, testData[,-6], type="class")
-#balanceScale_pred <- predict(balanceScale_rpart, newData = testData, type="class")
-balanceScale_pred
-table(balanceScale_pred, testData$class)
-
+## Eclat Algorithm
+itemsets <- eclat(votingBaskets, parameter = list(sup=0.1, minlen=3, maxlen=15))
+fsets <- eclat(votingBaskets, parameter=list(sup=0.5, minlen=3))
+fsets.top5 <- sort(fsets)[1:5]
+inspect(fsets.top5)
+rulesDem <- subset(itemsets, subset=items%in%"V1=democrat")
+rulesRep <- subset(itemsets, subset=items%in%"V1=republican")
+inspect(sort(rulesDem, by="support")[1:5])
+inspect(sort(rulesRep, by="support")[1:5])
