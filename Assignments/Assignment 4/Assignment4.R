@@ -91,7 +91,7 @@ inspect(sort(rulesRepublican, by="confidence")[1:5])
 
 
 ## Eclat Algorithm
-itemsets <- eclat(votingBaskets, parameter = list(sup=0.1, minlen=3, maxlen=15))
+itemsets <- eclat(votingBaskets, parameter = list(sup=0.01, minlen=3, maxlen=15))
 fsets <- eclat(votingBaskets, parameter=list(sup=0.01, minlen=3))
 fsets.top5 <- sort(fsets)[1:5]
 inspect(fsets.top5)
