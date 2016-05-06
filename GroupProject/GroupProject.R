@@ -1,5 +1,5 @@
 #### Input data set plants scale into Data Frame "plantsData"
-#crimeData <- read.csv(file = "C:/Users/kevin",
+#crimeData <- read.csv(file = "C:/Users/Kevin Kuo/git/DataMining/GroupProject/UCI/communities.data"
 crimeData <- read.csv(file = "C:/Users/maryjoyce/git/COSC757/GroupProject/UCI/communities.data",
                       header = FALSE, sep = ",", stringsAsFactors = TRUE,
                       col.names = c("state_numeric", "county_numeric", "community_numeric", "community_name_string", "fold_numeric",
@@ -40,9 +40,62 @@ crimeData <- read.csv(file = "C:/Users/maryjoyce/git/COSC757/GroupProject/UCI/co
                                     "NumKindsDrugsSeiz_numeric", "PolicAveOTWorked_numeric", "LandArea_numeric", "PopDens_numeric",
                                     "percent_UsePubTrans_numeric", "PolicCars_numeric", "PolicOperBudg_numeric", "Lemaspercent_PolicOnPatr_numeric",
                                     "LemasGangUnitDeploy_numeric", "Lemaspercent_OfficDrugUn_numeric", "PolicBudgPerPop_numeric", "ViolentCrimesPerPop_numeric"))
-#crimeData[crimeData=="?"]<-"0"
 
-crimeData[1:20,]
+#crimeData[1:20,]
+
+#crimeData[crimeData=="?"]<-0
+
+#install.packages("rpart")
+#library(rpart)
+
+# 5/10 bins (number is off for some reason)
+for(m in 1:2){
+  n.bins <- m*10
+  n.size<-length(crimeData$ViolentCrimesPerPop_numeric)
+  whichbin <- crimeData
+#  print(whichbin)
+
+  r.violentCrimes<-max(crimeData$ViolentCrimesPerPop_numeric) - min(crimeData$ViolentCrimesPerPop_numeric) + 1
+  binwidth<-r.violentCrimes/n.bins
+  print(binwidth)
+  for (i in 1:n.bins){
+    for(j in 1:n.size){
+      if((i-1)*binwidth < crimeData$ViolentCrimesPerPop_numeric[j] && crimeData$ViolentCrimesPerPop_numeric[j] <= (i)*binwidth)
+        whichbin$ViolentCrimesPerPop_numeric[j] <- i
+    if((i == 1) && (crimeData$ViolentCrimesPerPop_numeric[j] == 0)) {
+      whichbin$ViolentCrimesPerPop_numeric[j] <- i
+    }
+    }
+  }
+  print(whichbin$ViolentCrimesPerPop_numeric)
+  hist(whichbin$ViolentCrimesPerPop_numeric,
+       breaks = m*5,
+       xlim = c(1,m*5),
+       col = "lightblue",
+       ylab = "Count",
+       xlab = "Bin",
+       main = "Histogram of Binned Violent Crimes Per Population")
+  
+  set.seed(1234)
+  ind <- sample(2, n.size, replace=TRUE,
+                prob=c(0.7,0.3))
+  trainData <- whichbin[ind==1, ]
+  testData <- whichbin[ind==2,]
+  
+  crimeData_rpart <- rpart(ViolentCrimesPerPop_numeric ~ race_percent_black_numeric + race_percent_white_numeric, data = trainData, method = "class")
+  printcp(crimeData_rpart)
+  plotcp(crimeData_rpart)
+  plot(crimeData_rpart)
+  text(crimeData_rpart, use.n=TRUE)
+  crimeData_pred <- predict(crimeData_rpart, testData[,-6], type="class")
+  print(crimeData_pred)
+  print(table(crimeData_pred, testData$ViolentCrimesPerPop_numeric))
+}
+
+
+
+
+
 
 # Race
 pairs(~crimeData$ViolentCrimesPerPop_numeric+
@@ -307,6 +360,8 @@ plot(crimeData$PctUsePubTrans_numeric,
      col = "green")
 
 
+
+#crimeData[crimeData=="?"]<-"0"
 
 
 
