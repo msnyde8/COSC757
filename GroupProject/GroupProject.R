@@ -293,16 +293,15 @@ pairs(~crimeData$ViolentCrimesPerPop_numeric+
 
 
 hist(crimeData$ViolentCrimesPerPop_numeric,
-     breaks = 80,
-     xlim = c(0.4,1),
+     breaks = 5,
+     xlim = c(0,1),
      col = "lightblue",
      ylab = "Count",
      xlab = "Violent Crimes Per Population",
      main = "Histogram of MPG")
-
-plot(crimeData$NumUnderPov_numeric,
+plot(crimeData$number_under_poverty_numeric,
      crimeData$ViolentCrimesPerPop_numeric,
-     xlim = c(0,1),
+     xlim = c(0.4,1),
      ylim = c(0.4,1),
      xlab = "Number Under Poverty",
      ylab = "Violent Crimes Per Population",
@@ -310,12 +309,12 @@ plot(crimeData$NumUnderPov_numeric,
      type = "p",
      pch = 16,
      col = "green")
-points(crimeData$NumUnderPov_numeric,
+points(crimeData$number_under_poverty_numeric,
        crimeData$ViolentCrimesPerPop_numeric,
        type = "p",
        col = "black")
 
-plot(crimeData$FemalePctDiv_numeric,
+plot(crimeData$female_percent_divorced_numeric,
      crimeData$ViolentCrimesPerPop_numeric,
      xlim = c(0,1),
      ylim = c(0.4,1),
@@ -326,7 +325,7 @@ plot(crimeData$FemalePctDiv_numeric,
      pch = 16,
      col = "green")
 
-plot(crimeData$PctBornSameState_numeric,
+plot(crimeData$percent_BornSameState_numeric,
      crimeData$ViolentCrimesPerPop_numeric,
      xlim = c(0,1),
      ylim = c(0.4,1),
@@ -337,7 +336,7 @@ plot(crimeData$PctBornSameState_numeric,
      pch = 16,
      col = "green")
 
-plot(crimeData$MalePctDivorce_numeric,
+plot(crimeData$male_percent_divorced_numeric,
      crimeData$ViolentCrimesPerPop_numeric,
      xlim = c(0,1),
      ylim = c(0.4,1),
@@ -348,7 +347,7 @@ plot(crimeData$MalePctDivorce_numeric,
      pch = 16,
      col = "green")
 
-plot(crimeData$PctUsePubTrans_numeric,
+plot(crimeData$percent_UsePubTrans_numeric,
      crimeData$ViolentCrimesPerPop_numeric,
      xlim = c(0,1),
      ylim = c(0.4,1),
@@ -366,9 +365,9 @@ plot(crimeData$PctUsePubTrans_numeric,
 
 
 
-for(i in 1:65){
-  
-}
+#for(i in 1:65){
+#  
+#}
 
 votingData$V1 <- as.factor(votingData$V1)
 votingData$V2[votingData$V2=="y"]<-"1y"
