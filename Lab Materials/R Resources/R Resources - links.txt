@@ -1,0 +1,5 @@
+Quick R:
+http://www.statmethods.net/
+
+Clustering Tutorial:
+http://michael.hahsler.net/SMU/EMIS7332/R/chap8.html
